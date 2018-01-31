@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Modyfikacja sali</title>
+  </head>
+  <body>
+  <h1>Modyfikacja sali</h1>
+    <form action="" method="POST">
+      {% csrf_token %}
+      <label>Nazwa: <input type="text" name="name" value="{{ room.name }}"></label>
+      <label>Ilość miejsc: <input type="number" name="seats" value="{{ room.seats }}"></label>
+      <label>Rzutnik: <input type="checkbox" name="projector" value="TRUE"></label>
+      <input type="submit" value="Zapisz zmiany">
+    </form>
+  <p><a href="/delete_room/{{ room.id }}/">Usuń salę</a></p>
+  <p><a href="/rooms/">Wróć (Zamknij bez zapisywania)</a></p>
+  </body>
+</html>

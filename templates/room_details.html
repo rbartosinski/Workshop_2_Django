@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Szczegóły sali</title>
+</head>
+<body>
+<p><h2>Szczegóły sali: {{ room.name }}</h2></p>
+    <table>
+        <tr>
+            <td>Nazwa: {{ room.name }}</td>
+        </tr>
+        <tr>
+            <td>Ilość miejsc: {{ room.seats }}</td>
+        </tr>
+        <tr>
+            <td>Rzutnik:
+                {% if room.projector %}
+                Tak
+                {% else %}
+                Nie
+                {% endif %}
+            </td>
+        </tr>
+        <tr>
+        </tr>
+        <tr>
+            <td>Rezerwacje sali {{ room.name }}: </td>
+            {% for booking in bookings %}
+        <tr>
+            <td> {{ forloop.counter }} {# starting index 1 #}: Data rezerwacji: {{ booking.date }}</td>
+        </tr>
+        <tr>
+            <td>    *Uwagi dot. rezerwacji: {{ booking.comment }}</td>
+        </tr>
+            {% empty %}
+        <tr>
+            <td>Nie ma jeszcze rezerwacji tej sali.</td>
+        </tr>
+            {% endfor %}
+    </table>
+<p><a href="/room/modify/{{ room.id }}">Edytuj salę</a></p>
+<p><a href="/reservation/{{ room.id  }}">Rezerwuj salę</a></p>
+<p><a href="/rooms/">Wróć</a></p>
+</body>
+</html>

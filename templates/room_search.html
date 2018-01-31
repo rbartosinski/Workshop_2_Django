@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Wyszukiwarka sal</title>
+</head>
+<body>
+<p><h2>Wyszukiwarka</h2></p>
+<form action="" method="POST">
+    {% csrf_token %}
+    <table>
+        <tr>
+            <td>Nazwa sali:<input name="name" placeholder="Podaj nazwę"></td>
+        </tr>
+        <tr>
+            <td>Pojemność sali: <input name="seats_max" placeholder="Podajliczbę"></td>
+        </tr>
+        <tr>
+            <td>Minimalna liczba osób biorących udział w spotkaniu: <input name="seats_min" placeholder="Podaj liczbę"></td>
+        </tr>
+        <tr>
+            <td>Dostępność rzutnika: <input type="checkbox" name="projector" value="TRUE"></td>
+        </tr>
+    </table>
+    <p><input type="submit" value="Szukaj"></p>
+    </form>
+{% if finded_rooms is not None %}
+    {% for room in finded_rooms %}
+        <p><a href="{% url 'room_details' room_id=room.id %}">{{ room.name }}</a></p>
+    {% empty %}
+        <p>Brak wolnych sal dla podanych kryteriów wyszukiwania</p>
+    {% endfor %}
+{% endif %}
+<p><a href="/rooms/">Wróć</a></p>
+</body>
+</html>

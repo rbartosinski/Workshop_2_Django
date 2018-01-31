@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Dodaj nową salę</title>
+  </head>
+  <body>
+  <h1>Nowa sala</h1>
+    <form action="" method="POST">
+      {% csrf_token %}
+      <label>Nazwa sali: <input type="text" name="name"></label>
+      <label>Liczba miejsc: <input type="number" name="seats"></label>
+      <label>Rzutnik: <input type="checkbox" name="projector" value="true"></label>
+      <input type="submit" value="Dodaj salę">
+    </form>
+    <p><a href="/rooms/">Wróć</a></p>
+  </body>
+</html>
