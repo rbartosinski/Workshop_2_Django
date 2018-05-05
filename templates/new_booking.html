@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Rezerwacja w toku</title>
+  </head>
+  <body>
+  <h1>Rezerwacja w toku. Sala: {{ room.name }}</h1>
+    <form action="" method="POST">
+      {% csrf_token %}
+      <label>Data: <input type="date" name="date"></label>
+      <label>Uwagi: <input type="text" name="comment"></label>
+      <input type="submit" value="Rezerwuj">
+    </form>
+  <p><a href="/rooms/">Wróć</a></p>
+  </body>
+</html>

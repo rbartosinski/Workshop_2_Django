@@ -78,7 +78,7 @@ WSGI_APPLICATION = 'workshop.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
+        'ENGINE': 'mysql.connector.django',
         'NAME': 'django_workshop',
         'HOST': '127.0.0.1',
         'PORT': 3306,
